@@ -16,12 +16,19 @@ class Cupboard
   def stock_shelf
     5.times do
       @shelf.contents << Glass.new
+      @shelf.contents << Dish.new
     end
   end
 
   def find_glass
     @shelf.contents.find do |obj|
       obj.class == Glass
+    end
+  end
+
+  def find_dish
+    @shelf.contents.find do |obj|
+      obj.class == Dish
     end
   end
 

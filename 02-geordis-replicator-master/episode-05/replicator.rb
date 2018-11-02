@@ -1,3 +1,5 @@
+require 'pry'
+
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -43,6 +45,7 @@ class Replicator
 
     # Setup an instance variable for the recipe
     # so that other methods can see what the recipe is
+    # binding.pry
     @recipe = recipe
 
     # This transports a glass from the cupboard to inside the replicator.
@@ -73,6 +76,7 @@ class Replicator
     # If it's successful, all the ingredients should still be in the glass.
     mix
 
+    # binding.pry
     # This method adjusts the temperature of the contents in the glass.
     # If you read back `glass.temperature`, then it should be set
     # to the temperature the recipe calls for if this method executed properly.
@@ -137,7 +141,6 @@ class Replicator
 
     # Abort if there is no glass inside the replicator.
     return unless glass_inside_replicator
-
     # Transport glass to the reactor where the temperature adjustment will take place.
     # If successful, @enterprise.reactor.core will now contain the glass
     # and @inside_replicator will no longer contain the glass.
@@ -149,6 +152,7 @@ class Replicator
     maximum_adjustments_allowed = 70
     number_of_adjustments       = 0
 
+    # binding.pry
     # Keep adjusting temperature until desired temperature is reached
     # or too many attempts have been made to adjust temperature.
     # If successful, @glass will be set to the proper

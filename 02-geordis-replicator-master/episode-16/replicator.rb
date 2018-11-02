@@ -1,3 +1,5 @@
+require 'pry'
+
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -49,10 +51,10 @@ class Replicator
     # If this method is successful, it will return the glass that was
     # transported and @inside_replicator will contain the glass
     # in its contents.
-    retrieve_glass
+    retrieve_object
 
-    # Setup an instance variable to access the glass.
-    @glass = @inside_replicator.contents.first
+    # Setup an instance variable to access the object.
+    @object = @inside_replicator.contents.first
 
     # Transport each ingredient the recipe calls for
     # from the pantry to the glass.
@@ -87,12 +89,23 @@ class Replicator
   end
 
   # This moves the glass from the cupboard to inside the replicator.
-  def retrieve_glass
-    @enterprise.transporter.energize(
-      @enterprise.cupboard.find_glass,
-      @enterprise.cupboard.shelf,
-      @inside_replicator
-    )
+  def retrieve_object
+
+    case @recipe.type
+
+    when 'drink'
+      @enterprise.transporter.energize(
+        @enterprise.cupboard.find_glass,
+        @enterprise.cupboard.shelf,
+        @inside_replicator
+      )
+    when 'food'
+      @enterprise.transporter.energize(
+        @enterprise.cupboard.find_dish,
+        @enterprise.cupboard.shelf,
+        @inside_replicator
+      )
+    end
   end
 
   def glass_inside_replicator
@@ -153,12 +166,12 @@ class Replicator
     # or too many attempts have been made to adjust temperature.
     # If successful, @glass will be set to the proper
     # recipe temperature after the loop has finished.
-    while @glass.temperature != desired_temperature &&
+    while @object.temperature != desired_temperature &&
           number_of_adjustments <= maximum_adjustments_allowed
 
-      if @glass.temperature > desired_temperature
+      if @object.temperature > desired_temperature
         @enterprise.reactor.cool_items_in_core
-      elsif @glass.temperature < desired_temperature
+      elsif @object.temperature < desired_temperature
         @enterprise.reactor.heat_items_in_core
       end
 
@@ -183,7 +196,7 @@ class Replicator
 
   def transport_glass_from_reactor
     @enterprise.transporter.energize(
-      @glass,
+      @object,
       @enterprise.reactor.core,
       @inside_replicator
     )

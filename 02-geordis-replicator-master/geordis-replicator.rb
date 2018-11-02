@@ -41,10 +41,11 @@ display.star_anticipating_replicator_creation
 
 # Obtain whatever the first element is on the replicator plate (which is a Ruby Array).
 # There should be only one element in this array.
-glass = enterprise.replicator.plate.contents.first
+# glass = enterprise.replicator.plate.contents.first
+dish = enterprise.replicator.plate.contents.first
 
 # Compare what's inside the glass with what the Episode's recipe requested.
-Validator.new(glass, episode.recipe) if glass
+Validator.new(dish, episode.recipe) if dish
 
 # Display either a positive reaction if the glass contains the correct recipe
 # or else a negative reaction to what the issue is.
@@ -52,4 +53,4 @@ Validator.new(glass, episode.recipe) if glass
 # - no glass
 # - wrong temperature (too hot / too cold)
 # - wrong ingredients
-display.star_responding_to_replicator_creation(glass)
+display.star_responding_to_replicator_creation(dish)

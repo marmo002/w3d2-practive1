@@ -1,3 +1,5 @@
+require 'pry'
+
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -137,6 +139,7 @@ class Replicator
 
     # Abort if there is no glass inside the replicator.
     return unless glass_inside_replicator
+    # binding.pry
 
     # Transport glass to the reactor where the temperature adjustment will take place.
     # If successful, @enterprise.reactor.core will now contain the glass

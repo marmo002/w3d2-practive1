@@ -1,3 +1,4 @@
+require 'pry'
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -43,6 +44,7 @@ class Replicator
 
     # Setup an instance variable for the recipe
     # so that other methods can see what the recipe is
+    # binding.pry
     @recipe = recipe
 
     # This transports a glass from the cupboard to inside the replicator.

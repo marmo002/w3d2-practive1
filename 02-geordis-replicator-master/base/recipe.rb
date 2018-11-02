@@ -8,9 +8,10 @@
 
 class Recipe
 
-  attr_reader :name, :temperature, :ingredients
+  attr_reader :name, :temperature, :ingredients, :type
 
   def initialize(recipe)
+    @type        = recipe['type']
     @name        = recipe['name']
     @temperature = recipe['temperature'].to_i
     @ingredients = recipe['ingredients']

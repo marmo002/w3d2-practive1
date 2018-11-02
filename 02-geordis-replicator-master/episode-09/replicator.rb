@@ -1,3 +1,4 @@
+require 'pry'
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -52,6 +53,7 @@ class Replicator
     retrieve_glass
 
     # Setup an instance variable to access the glass.
+
     @glass = @inside_replicator.contents.first
 
     # Transport each ingredient the recipe calls for
@@ -83,6 +85,7 @@ class Replicator
     # If it's successful, glass_inside_replicator should be nil
     # and now @plate.contents should contain the glass at
     # the proper temperature and with the proper ingredients.
+
     transport_glass_to_replicator_plate
   end
 
@@ -169,7 +172,7 @@ class Replicator
     # Transport glass from reactor back to inside the replicator.
     # If successful, @enterprise.reactor.core will now be empty
     # and @inside_replicator will once again contain the glass.
-    # transport_glass_from_reactor
+    transport_glass_from_reactor
 
   end
 
@@ -190,6 +193,8 @@ class Replicator
   end
 
   def transport_glass_to_replicator_plate
+    # binding.pry
+
     @enterprise.transporter.energize(
       glass_inside_replicator,
       @inside_replicator,

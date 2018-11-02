@@ -3,7 +3,7 @@
 # When this is instatiated, it should set its temperature
 # and setup a spot inside of itself to store the ingredients.
 
-class Glass
+class Dish
 
   LUKE_WARM = 37
 

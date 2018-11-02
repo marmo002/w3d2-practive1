@@ -1,3 +1,5 @@
+require 'pry'
+
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -107,7 +109,7 @@ class Replicator
 
     # Abort if there is no glass inside the replicator.
     return unless glass_inside_replicator
-
+    
     # Go through recipe and transport each ingredient
     # from pantry to glass, one by one.
     @recipe.ingredients.each do |ingredient_name|

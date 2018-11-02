@@ -1,0 +1,26 @@
+{
+  "title": "PERFECT JOB",
+  "star":  "Martiny",
+  "recipe": {
+    "type":        "food",
+    "name":        "Shrimp Scampy",
+    "temperature": "35",
+    "ingredients": [
+      "shrimp",
+      "spaghetty",
+      "lime",
+      "wine",
+      "cheese"
+    ]
+  },
+  "lines": {
+    "setup":                                     "Martiny takes a break, thinks and imagines. 'What would be a good dish for lunch,' he says to himself. He puts on his visor and moves to the replicator.",
+    "replicator_command":                        "Shrimp Scampy, please. Lots of shrimps, and parmesan cheese.",
+    "anticipating_replicator_creation":          "looks at the serving plate and picks up the delecious Shrimp Scampy, warm, and tasty. He takes a long bite.",
+    "responding_to_replicator_creation_success": "Now that's a good lunch!",
+    "move_on_to_next_episode":                   "Congratulations! You may now move on to the next episode.",
+    "responding_to_nothing_on_replicator_plate": "There's nothing there!",
+    "responding_to_replicator_creation_failure": "That's not a Shrimp Scampy!",
+    "fix_replicator_request":                    "Fix this replicator please!"
+  }
+}
